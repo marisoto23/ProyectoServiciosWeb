@@ -153,7 +153,7 @@ namespace WebApiSegura.Controllers
                                                             CodigoAerolinea = @CodigoAerolinea,
                                                             CodigoVuelo = @CodigoVuelo,
                                                             CodigoAeropuerto = @CodigoAeropuerto,
-                                                            Capacidad = @Capacidad,
+                                                            Capacidad = @Capacidad
                                                             WHERE CodigoAvion = @CodigoAvion ", sqlConnection);
 
                     sqlCommand.Parameters.AddWithValue("@CodigoAvion", avion.CodigoAvion);
@@ -212,7 +212,6 @@ namespace WebApiSegura.Controllers
                 return InternalServerError(e);
             }
         }
-
 
     }
 }

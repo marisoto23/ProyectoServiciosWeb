@@ -183,6 +183,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AeropuertoController.cs" />
     <Compile Include="Controllers\AvionController.cs" />
+    <Compile Include="Controllers\EquipajeController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\EstadisticaController.cs" />
     <Compile Include="Controllers\HabitacionController.cs" />
