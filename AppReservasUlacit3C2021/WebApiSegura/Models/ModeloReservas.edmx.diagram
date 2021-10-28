@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b87df9d983774f94a9e62ba9795874b4" Name="Diagram1">
+      <Diagram DiagramId="b87df9d983774f94a9e62ba9795874b4" Name="Diagram1" ZoomLevel="40">
         <EntityTypeShape EntityType="RESERVAS_ULACIT_3C2021Model.Error" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RESERVAS_ULACIT_3C2021Model.Estadistica" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="RESERVAS_ULACIT_3C2021Model.Habitacion" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
@@ -19,6 +19,24 @@
         <AssociationConnector Association="RESERVAS_ULACIT_3C2021Model.FK_Reserva_Habitacion" ManuallyRouted="false" />
         <AssociationConnector Association="RESERVAS_ULACIT_3C2021Model.FK_Reserva_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="RESERVAS_ULACIT_3C2021Model.FK_Sesion_Usuario" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RESERVAS_ULACIT_3C2021Model.Aerolinea" Width="1.5" PointX="8.375" PointY="4.625" />
+        <EntityTypeShape EntityType="RESERVAS_ULACIT_3C2021Model.Aeropuerto" Width="1.5" PointX="10.625" PointY="4.625" />
+        <EntityTypeShape EntityType="RESERVAS_ULACIT_3C2021Model.Avion" Width="1.5" PointX="12.875" PointY="4.375" />
+        <EntityTypeShape EntityType="RESERVAS_ULACIT_3C2021Model.Clientes" Width="1.5" PointX="17.375" PointY="4.125" />
+        <EntityTypeShape EntityType="RESERVAS_ULACIT_3C2021Model.Equipaje" Width="1.5" PointX="19.625" PointY="4.75" />
+        <EntityTypeShape EntityType="RESERVAS_ULACIT_3C2021Model.Pago" Width="1.5" PointX="15.125" PointY="0.75" />
+        <EntityTypeShape EntityType="RESERVAS_ULACIT_3C2021Model.ReservasVuelo" Width="1.5" PointX="15.125" PointY="4.5" />
+        <EntityTypeShape EntityType="RESERVAS_ULACIT_3C2021Model.Vuelo" Width="1.5" PointX="15.125" PointY="7.875" />
+        <AssociationConnector Association="RESERVAS_ULACIT_3C2021Model.FK_Aeropuerto_Aerolinea" />
+        <AssociationConnector Association="RESERVAS_ULACIT_3C2021Model.FK_Avion_Aerolinea" />
+        <AssociationConnector Association="RESERVAS_ULACIT_3C2021Model.FK_Avion_Aeropuerto" />
+        <AssociationConnector Association="RESERVAS_ULACIT_3C2021Model.FK_Avion_Vuelo" />
+        <AssociationConnector Association="RESERVAS_ULACIT_3C2021Model.FK_ReservasVuelo_Avion" />
+        <AssociationConnector Association="RESERVAS_ULACIT_3C2021Model.FK_Vuelo_Avion" />
+        <AssociationConnector Association="RESERVAS_ULACIT_3C2021Model.FK_Clientes_Pago" />
+        <AssociationConnector Association="RESERVAS_ULACIT_3C2021Model.FK_Clientes_ReservasVuelo" />
+        <AssociationConnector Association="RESERVAS_ULACIT_3C2021Model.FK_Equipaje_Clientes" />
+        <AssociationConnector Association="RESERVAS_ULACIT_3C2021Model.FK_ReservasVuelo_Clientes" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -12,15 +12,14 @@ namespace WebApiSegura.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Reserva
+    public partial class Equipaje
     {
-        public int Codigo { get; set; }
+        public int CodigoEquipaje { get; set; }
         public int CodigoUsuario { get; set; }
-        public int CodigoHabitacion { get; set; }
-        public System.DateTime FechaIngreso { get; set; }
-        public System.DateTime FechaSalida { get; set; }
+        public int Costo { get; set; }
+        public int Peso { get; set; }
+        public int CodigoAvion { get; set; }
     
-        public virtual Habitacion Habitacion { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public virtual Clientes Clientes { get; set; }
     }
 }

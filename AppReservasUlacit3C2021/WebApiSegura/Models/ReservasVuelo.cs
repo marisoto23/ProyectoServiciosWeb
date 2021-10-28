@@ -12,22 +12,23 @@ namespace WebApiSegura.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Hotel
+    public partial class ReservasVuelo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Hotel()
+        public ReservasVuelo()
         {
-            this.Habitacion = new HashSet<Habitacion>();
+            this.Clientes = new HashSet<Clientes>();
         }
     
-        public int Codigo { get; set; }
-        public string Nombre { get; set; }
-        public string Email { get; set; }
-        public string Direccion { get; set; }
-        public string Telefono { get; set; }
-        public string Categoria { get; set; }
+        public int CodigoReserva { get; set; }
+        public int CodigoUsuario { get; set; }
+        public int CodigoAvion { get; set; }
+        public int CodigoPago { get; set; }
+        public int Monto { get; set; }
     
+        public virtual Avion Avion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Habitacion> Habitacion { get; set; }
+        public virtual ICollection<Clientes> Clientes { get; set; }
+        public virtual Clientes Clientes1 { get; set; }
     }
 }

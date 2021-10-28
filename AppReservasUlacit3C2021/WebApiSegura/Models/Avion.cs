@@ -12,25 +12,27 @@ namespace WebApiSegura.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Habitacion
+    public partial class Avion
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Habitacion()
+        public Avion()
         {
-            this.Reserva = new HashSet<Reserva>();
+            this.ReservasVuelo = new HashSet<ReservasVuelo>();
+            this.Vuelo1 = new HashSet<Vuelo>();
         }
     
-        public int Codigo { get; set; }
-        public int CodigoHotel { get; set; }
-        public string Numero { get; set; }
+        public int CodigoAvion { get; set; }
+        public int CodigoAerolinea { get; set; }
+        public int CodigoVuelo { get; set; }
+        public int CodigoAeropuerto { get; set; }
         public int Capacidad { get; set; }
-        public string Tipo { get; set; }
-        public string Descripcion { get; set; }
-        public decimal Precio { get; set; }
-        public string Estado { get; set; }
     
-        public virtual Hotel Hotel { get; set; }
+        public virtual Aerolinea Aerolinea { get; set; }
+        public virtual Aeropuerto Aeropuerto { get; set; }
+        public virtual Vuelo Vuelo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reserva> Reserva { get; set; }
+        public virtual ICollection<ReservasVuelo> ReservasVuelo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Vuelo> Vuelo1 { get; set; }
     }
 }

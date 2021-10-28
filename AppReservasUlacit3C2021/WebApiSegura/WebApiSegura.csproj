@@ -181,6 +181,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AvionController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\EstadisticaController.cs" />
     <Compile Include="Controllers\HabitacionController.cs" />
@@ -194,6 +195,21 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Aerolinea.cs">
+      <DependentUpon>ModeloReservas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Aeropuerto.cs">
+      <DependentUpon>ModeloReservas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Avion.cs">
+      <DependentUpon>ModeloReservas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Clientes.cs">
+      <DependentUpon>ModeloReservas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Equipaje.cs">
+      <DependentUpon>ModeloReservas.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Error.cs">
       <DependentUpon>ModeloReservas.tt</DependentUpon>
@@ -223,7 +239,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloReservas.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Pago.cs">
+      <DependentUpon>ModeloReservas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Reserva.cs">
+      <DependentUpon>ModeloReservas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ReservasVuelo.cs">
       <DependentUpon>ModeloReservas.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sesion.cs">
@@ -236,6 +258,9 @@
       <DependentUpon>ModeloReservas.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UsuarioPartial.cs" />
+    <Compile Include="Models\Vuelo.cs">
+      <DependentUpon>ModeloReservas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

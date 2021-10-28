@@ -12,33 +12,30 @@ namespace WebApiSegura.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuario
+    public partial class Clientes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Usuario()
+        public Clientes()
         {
-            this.Error = new HashSet<Error>();
-            this.Estadistica = new HashSet<Estadistica>();
-            this.Reserva = new HashSet<Reserva>();
-            this.Sesion = new HashSet<Sesion>();
+            this.Equipaje = new HashSet<Equipaje>();
+            this.ReservasVuelo1 = new HashSet<ReservasVuelo>();
         }
     
-        public int Codigo { get; set; }
-        public string Identificacion { get; set; }
+        public int CodigoUsuario { get; set; }
+        public int Identificacion { get; set; }
         public string Nombre { get; set; }
-        public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
         public System.DateTime FechaNacimiento { get; set; }
-        public string Estado { get; set; }
+        public string Pasaporte { get; set; }
+        public string SeguroMedico { get; set; }
+        public int CodigoPago { get; set; }
     
+        public virtual Pago Pago { get; set; }
+        public virtual ReservasVuelo ReservasVuelo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Error> Error { get; set; }
+        public virtual ICollection<Equipaje> Equipaje { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Estadistica> Estadistica { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reserva> Reserva { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sesion> Sesion { get; set; }
+        public virtual ICollection<ReservasVuelo> ReservasVuelo1 { get; set; }
     }
 }
