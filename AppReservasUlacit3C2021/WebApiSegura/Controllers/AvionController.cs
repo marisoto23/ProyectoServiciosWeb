@@ -31,7 +31,7 @@ namespace WebApiSegura.Controllers
                     SqlCommand sqlCommand = new SqlCommand(@"SELECT CodigoAvion, CodigoAerolinea, CodigoVuelo, CodigoAeropuerto, Capacidad
                                                             FROM  Avion;
                                                             WHERE CodigoAvion = @CodigoAvion", sqlConnection);
-                    sqlCommand.Parameters.AddWithValue("@Codigo", id);
+                    sqlCommand.Parameters.AddWithValue("@CodigoAvion", id);
 
 
                     sqlConnection.Open();
