@@ -87,9 +87,9 @@ namespace WebApiSegura.Controllers
                         Pago pago = new Pago();
                         pago.CodigoPago = sqlDataReader.GetInt32(0);
                         pago.CodigoUsuario = sqlDataReader.GetInt32(1);
-                        pago.NumeroTarjeta = sqlDataReader.GetInt32(3);
-                        pago.CodigoSeguridad = sqlDataReader.GetInt32(4);
-                        pago.FechaVencimiento = sqlDataReader.GetDateTime(5);
+                        pago.NumeroTarjeta = sqlDataReader.GetInt32(2);
+                        pago.CodigoSeguridad = sqlDataReader.GetInt32(3);
+                        pago.FechaVencimiento = sqlDataReader.GetDateTime(4);
                         pagos.Add(pago);
                     }
 
