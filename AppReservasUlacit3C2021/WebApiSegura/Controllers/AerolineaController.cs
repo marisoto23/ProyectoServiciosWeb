@@ -115,12 +115,11 @@ namespace WebApiSegura.Controllers
                 using (SqlConnection sqlConnection = 
                     new SqlConnection(ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
-                    SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO Aerolinea(CodigoAerolinea, Nombre, CodigoAvion, Email, Telefono)
+                    SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO Aerolinea(Nombre, CodigoAvion, Email, Telefono)
                                                               OUTPUT INSERTED.CodigoAerolinea
                                                               VALUES (@CodigoAerolinea, @Nombre, @CodigoAvion, @Email, @Telefono)"
                                                               , sqlConnection);
 
-                    sqlCommand.Parameters.AddWithValue("@CodigoAerolinea", aerolinea.CodigoAerolinea);
                     sqlCommand.Parameters.AddWithValue("@Nombre", aerolinea.Nombre);
                     sqlCommand.Parameters.AddWithValue("@CodigoAvion", aerolinea.CodigoAvion);
                     sqlCommand.Parameters.AddWithValue("@Email", aerolinea.Email);
