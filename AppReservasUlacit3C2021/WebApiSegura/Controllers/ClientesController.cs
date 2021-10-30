@@ -186,15 +186,15 @@ namespace WebApiSegura.Controllers
                     ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
                     SqlCommand sqlCommand = new SqlCommand(@" UPDATE CLIENTES 
-                                                             SET CodigoUsuario = @CodigoUsuario,
-                                                                Identificacion = Identificacion,
+                                                             SET Identificacion = @Identificacion,
                                                                 Nombre = @Nombre,
                                                                 Password = @Password,
                                                                 Email = @Email,
                                                                 FechaNacimiento = @FechaNacimiento,
                                                                 Pasaporte = @Pasaporte,
                                                                 SeguroMedico = @SeguroMedico,
-                                                                CodigoPago = @CodigoPago ", sqlConnection);
+                                                                CodigoPago = @CodigoPago 
+                                                                WHERE CodigoUsuario = @CodigoUsuario ", sqlConnection);
                     sqlCommand.Parameters.AddWithValue("@CodigoUsuario", cliente.CodigoUsuario);
                     sqlCommand.Parameters.AddWithValue("@Identificacion", cliente.Identificacion);
                     sqlCommand.Parameters.AddWithValue("@Nombre", cliente.Nombre);

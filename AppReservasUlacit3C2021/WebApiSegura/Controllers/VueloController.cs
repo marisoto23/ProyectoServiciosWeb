@@ -28,7 +28,6 @@ namespace WebApiSegura.Controllers
                     SqlConnection(ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"SELECT CodigoVuelo
-                                                                  ,CodigoAvion
                                                                   ,Origen
                                                                   ,Destino
                                                                   ,FechaSalida
@@ -45,11 +44,10 @@ namespace WebApiSegura.Controllers
                     if (sqlDataReader.Read())
                     {
                         vuelo.CodigoVuelo = sqlDataReader.GetInt32(0);
-                        vuelo.CodigoAvion = sqlDataReader.GetInt32(1);
-                        vuelo.Origen = sqlDataReader.GetString(2);
-                        vuelo.Destino = sqlDataReader.GetString(3);
-                        vuelo.FechaSalida = sqlDataReader.GetDateTime(4);
-                        vuelo.FechaLlegada = sqlDataReader.GetDateTime(5);
+                        vuelo.Origen = sqlDataReader.GetString(1);
+                        vuelo.Destino = sqlDataReader.GetString(2);
+                        vuelo.FechaSalida = sqlDataReader.GetDateTime(3);
+                        vuelo.FechaLlegada = sqlDataReader.GetDateTime(4);
                     }
 
                     sqlConnection.Close();
@@ -73,7 +71,6 @@ namespace WebApiSegura.Controllers
                     SqlConnection(ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"SELECT CodigoVuelo
-                                                                  ,CodigoAvion
                                                                   ,Origen
                                                                   ,Destino
                                                                   ,FechaSalida
@@ -86,11 +83,10 @@ namespace WebApiSegura.Controllers
                     {
                         Vuelo vuelo = new Vuelo();
                         vuelo.CodigoVuelo = sqlDataReader.GetInt32(0);
-                        vuelo.CodigoAvion = sqlDataReader.GetInt32(1);
-                        vuelo.Origen = sqlDataReader.GetString(2);
-                        vuelo.Destino = sqlDataReader.GetString(3);
-                        vuelo.FechaSalida = sqlDataReader.GetDateTime(4);
-                        vuelo.FechaLlegada = sqlDataReader.GetDateTime(5);
+                        vuelo.Origen = sqlDataReader.GetString(1);
+                        vuelo.Destino = sqlDataReader.GetString(2);
+                        vuelo.FechaSalida = sqlDataReader.GetDateTime(3);
+                        vuelo.FechaLlegada = sqlDataReader.GetDateTime(4);
                         vuelos.Add(vuelo);
                     }
 
@@ -116,19 +112,16 @@ namespace WebApiSegura.Controllers
                 using (SqlConnection sqlConnection = new SqlConnection(
                     ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
-                    SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO VUELO (CodigoAvion
-                                                                              ,Origen
+                    SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO VUELO (Origen
                                                                               ,Destino
                                                                               ,FechaSalida
                                                                               ,FechaLlegada)
                                                             OUTPUT INSERTED.CodigoVuelo
-                                                            VALUES (@CodigoAvion
-                                                                      ,@Origen
+                                                            VALUES (@Origen
                                                                       ,@Destino
                                                                       ,@FechaSalida
                                                                       ,@FechaLlegada)", sqlConnection);
 
-                    sqlCommand.Parameters.AddWithValue("@CodigoAvion", vuelo.CodigoAvion);
                     sqlCommand.Parameters.AddWithValue("@Origen", vuelo.Origen);
                     sqlCommand.Parameters.AddWithValue("@Destino", vuelo.Destino);
                     sqlCommand.Parameters.AddWithValue("@FechaSalida", vuelo.FechaSalida);
@@ -165,15 +158,12 @@ namespace WebApiSegura.Controllers
                     ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
                     SqlCommand sqlCommand = new SqlCommand(@" UPDATE Vuelo
-                                                             SET CodigoAvion = @CodigoAvion,
-                                                                 Origen = @Origen,
+                                                             SET Origen = @Origen,
                                                                  Destino = @Destino,
                                                                  FechaSalida = @FechaSalida,
                                                                  FechaLlegada = @FechaLlegada
-                                                             WHERE Codigo = @CodigoVuelo ", sqlConnection);
+                                                             WHERE CodigoVuelo = @CodigoVuelo ", sqlConnection);
 
-                    sqlCommand.Parameters.AddWithValue("@CodigoVuelo", vuelo.CodigoVuelo);
-                    sqlCommand.Parameters.AddWithValue("@CodigoAvion", vuelo.CodigoAvion);
                     sqlCommand.Parameters.AddWithValue("@Origen", vuelo.Origen);
                     sqlCommand.Parameters.AddWithValue("@Destino", vuelo.Destino);
                     sqlCommand.Parameters.AddWithValue("@FechaSalida", vuelo.FechaSalida);

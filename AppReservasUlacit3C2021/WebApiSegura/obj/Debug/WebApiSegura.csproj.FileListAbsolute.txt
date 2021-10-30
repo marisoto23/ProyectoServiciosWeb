@@ -108,8 +108,6 @@ C:\Users\Sam\source\AppReservasUlacit3C2021\WebApiSegura\obj\Debug\WebApiSegura.
 C:\Users\Sam\source\AppReservasUlacit3C2021\WebApiSegura\obj\Debug\WebApiSegura.dll
 C:\Users\Sam\source\AppReservasUlacit3C2021\WebApiSegura\obj\Debug\WebApiSegura.pdb
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 =======
 >>>>>>> Stashed changes
 <<<<<<< HEAD
@@ -222,11 +220,6 @@ C:\Users\pinot\Documents\GitHub\ProyectoServiciosWeb\AppReservasUlacit3C2021\Web
 C:\Users\pinot\Documents\GitHub\ProyectoServiciosWeb\AppReservasUlacit3C2021\WebApiSegura\obj\Debug\WebApiSegura.csproj.CopyComplete
 C:\Users\pinot\Documents\GitHub\ProyectoServiciosWeb\AppReservasUlacit3C2021\WebApiSegura\obj\Debug\WebApiSegura.dll
 C:\Users\pinot\Documents\GitHub\ProyectoServiciosWeb\AppReservasUlacit3C2021\WebApiSegura\obj\Debug\WebApiSegura.pdb
-=======
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 C:\Users\maris\Documents\GitHub\ProyectoServiciosWeb\AppReservasUlacit3C2021\WebApiSegura\bin\WebApiSegura.dll.config
 C:\Users\maris\Documents\GitHub\ProyectoServiciosWeb\AppReservasUlacit3C2021\WebApiSegura\bin\WebApiSegura.dll
 C:\Users\maris\Documents\GitHub\ProyectoServiciosWeb\AppReservasUlacit3C2021\WebApiSegura\bin\WebApiSegura.pdb
@@ -336,11 +329,4 @@ C:\Users\maris\Documents\GitHub\ProyectoServiciosWeb\AppReservasUlacit3C2021\Web
 C:\Users\maris\Documents\GitHub\ProyectoServiciosWeb\AppReservasUlacit3C2021\WebApiSegura\obj\Debug\WebApiSegura.csproj.CopyComplete
 C:\Users\maris\Documents\GitHub\ProyectoServiciosWeb\AppReservasUlacit3C2021\WebApiSegura\obj\Debug\WebApiSegura.dll
 C:\Users\maris\Documents\GitHub\ProyectoServiciosWeb\AppReservasUlacit3C2021\WebApiSegura\obj\Debug\WebApiSegura.pdb
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 >>>>>>> 495896f755b485ed4592937ca17c95d621bf4a0c
->>>>>>> Stashed changes
-=======
->>>>>>> 495896f755b485ed4592937ca17c95d621bf4a0c
->>>>>>> Stashed changes

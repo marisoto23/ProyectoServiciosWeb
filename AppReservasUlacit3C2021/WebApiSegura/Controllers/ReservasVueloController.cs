@@ -140,8 +140,7 @@ namespace WebApiSegura.Controllers
                 ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"UPDATE RESERVASVUELO
-                                                            SET CodigoReserva = @CodigoReserva, 
-                                                            CodigoUsuario = @CodigoUsuario, 
+                                                            SET CodigoUsuario = @CodigoUsuario, 
                                                             CodigoAvion = @CodigoAvion, 
                                                             CodigoPago = @CodigoPago, 
                                                             Monto = @Monto
