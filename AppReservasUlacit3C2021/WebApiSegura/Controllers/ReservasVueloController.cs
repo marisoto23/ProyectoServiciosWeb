@@ -145,6 +145,7 @@ namespace WebApiSegura.Controllers
                                                             CodigoPago = @CodigoPago, 
                                                             Monto = @Monto
                                                             WHERE CodigoReserva = @CodigoReserva ", sqlConnection);
+
                     sqlCommand.Parameters.AddWithValue("@CodigoReserva", reservasVuelo.CodigoReserva);
                     sqlCommand.Parameters.AddWithValue("@CodigoUsuario", reservasVuelo.CodigoUsuario);
                     sqlCommand.Parameters.AddWithValue("@CodigoAvion", reservasVuelo.CodigoAvion);

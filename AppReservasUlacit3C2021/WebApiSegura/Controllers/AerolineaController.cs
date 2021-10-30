@@ -11,7 +11,7 @@ namespace WebApiSegura.Controllers
 {
     [Authorize]
     [RoutePrefix("api/aerolinea")]
-    public class AerolineaController: ApiController
+    public class AerolineaController : ApiController
     {
         ///GET ID
         [HttpGet]
@@ -24,7 +24,7 @@ namespace WebApiSegura.Controllers
 
             try
             {
-                using (SqlConnection sqlConnection = 
+                using (SqlConnection sqlConnection =
                     new SqlConnection(ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"SELECT CodigoAerolinea
@@ -68,7 +68,7 @@ namespace WebApiSegura.Controllers
 
             try
             {
-                using (SqlConnection sqlConnection = 
+                using (SqlConnection sqlConnection =
                     new SqlConnection(ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"SELECT CodigoAerolinea
@@ -112,12 +112,12 @@ namespace WebApiSegura.Controllers
 
             try
             {
-                using (SqlConnection sqlConnection = 
+                using (SqlConnection sqlConnection =
                     new SqlConnection(ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO Aerolinea(Nombre, CodigoAvion, Email, Telefono)
                                                               OUTPUT INSERTED.CodigoAerolinea
-                                                              VALUES (@CodigoAerolinea, @Nombre, @CodigoAvion, @Email, @Telefono)"
+                                                              VALUES (@Nombre, @CodigoAvion, @Email, @Telefono)"
                                                               , sqlConnection);
 
                     sqlCommand.Parameters.AddWithValue("@Nombre", aerolinea.Nombre);
@@ -153,15 +153,14 @@ namespace WebApiSegura.Controllers
             try
             {
                 using (SqlConnection sqlConnection = new SqlConnection(
-                ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
+                    ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
-                    SqlCommand sqlCommand = new SqlCommand(@"UPDATE Aerolinea
-                                                              SET CodigoAerolinea = @CodigoAerolinea,
-                                                                   Nombre = @Nombre,
-                                                                   CodigoAvion = @CodigoAvion,
-                                                                   Email = @Email,
-                                                                   Telefono = @Telefono,
-                                                                   WHERE CodigoAerolinea = @CodigoAerolinea ", sqlConnection);
+                    SqlCommand sqlCommand = new SqlCommand(@" UPDATE Aerolinea
+                                                             SET Nombre = @Nombre,
+                                                                 CodigoAvion = @CodigoAvion,
+                                                                 Email = @Email,
+                                                                 Telefono = @Telefono
+                                                             WHERE CodigoAerolinea = @CodigoAerolinea ", sqlConnection);
 
                     sqlCommand.Parameters.AddWithValue("@CodigoAerolinea", aerolinea.CodigoAerolinea);
                     sqlCommand.Parameters.AddWithValue("@Nombre", aerolinea.Nombre);
@@ -176,6 +175,7 @@ namespace WebApiSegura.Controllers
                     sqlConnection.Close();
 
                     return Ok(aerolinea);
+
                 }
             }
             catch (Exception e)

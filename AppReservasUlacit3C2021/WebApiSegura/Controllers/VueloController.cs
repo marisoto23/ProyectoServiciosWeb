@@ -64,7 +64,7 @@ namespace WebApiSegura.Controllers
         [HttpGet]
         public IHttpActionResult GetAll()
         {
-            List<Vuelo> vuelos= new List<Vuelo>();
+            List<Vuelo> vuelos = new List<Vuelo>();
             try
             {
                 using (SqlConnection sqlConnection = new
@@ -164,6 +164,7 @@ namespace WebApiSegura.Controllers
                                                                  FechaLlegada = @FechaLlegada
                                                              WHERE CodigoVuelo = @CodigoVuelo ", sqlConnection);
 
+                    sqlCommand.Parameters.AddWithValue("@CodigoVuelo", vuelo.CodigoVuelo);
                     sqlCommand.Parameters.AddWithValue("@Origen", vuelo.Origen);
                     sqlCommand.Parameters.AddWithValue("@Destino", vuelo.Destino);
                     sqlCommand.Parameters.AddWithValue("@FechaSalida", vuelo.FechaSalida);
@@ -196,10 +197,10 @@ namespace WebApiSegura.Controllers
                 using (SqlConnection sqlConnection = new SqlConnection(
                     ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
-                    SqlCommand sqlCommand = new SqlCommand(@" DELETE HOTEL 
-                                                             WHERE Codigo = @Codigo ", sqlConnection);
+                    SqlCommand sqlCommand = new SqlCommand(@" DELETE VUELO 
+                                                             WHERE CodigoVuelo = @CodigoVuelo ", sqlConnection);
 
-                    sqlCommand.Parameters.AddWithValue("@Codigo", id);
+                    sqlCommand.Parameters.AddWithValue("@CodigoVuelo", id);
 
                     sqlConnection.Open();
 

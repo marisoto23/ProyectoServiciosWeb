@@ -128,7 +128,7 @@ namespace WebApiSegura.Controllers
                 using (SqlConnection sqlConnection = new SqlConnection(
                     ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
-                        SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO HOTEL(Identificacion
+                    SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO CLIENTES(Identificacion
                                                                           ,Nombre
                                                                           ,Password
                                                                           ,Email

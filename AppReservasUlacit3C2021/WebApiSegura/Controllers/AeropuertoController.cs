@@ -109,7 +109,7 @@ namespace WebApiSegura.Controllers
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO AEROPUERTO(CodigoAerolinea, Ubicacion, Email, Telefono)
                                                             OUTPUT INSERTED.CodigoAeropuerto
-                                                            VALUES (@CodigoAeropuerto, @CodigoAerolinea, @Ubicacion, @Email, @Telefono)", sqlConnection);
+                                                            VALUES (@CodigoAerolinea, @Ubicacion, @Email, @Telefono)", sqlConnection);
 
                     sqlCommand.Parameters.AddWithValue("@CodigoAerolinea", aeropuerto.CodigoAerolinea);
                     sqlCommand.Parameters.AddWithValue("@Ubicacion", aeropuerto.Ubicacion);
@@ -151,7 +151,7 @@ namespace WebApiSegura.Controllers
                                                             SET CodigoAerolinea = @CodigoAerolinea,
                                                             Ubicacion = @Ubicacion,
                                                             Email = @Email,
-                                                            Telefono = @Telefono,
+                                                            Telefono = @Telefono
                                                             WHERE CodigoAeropuerto = @CodigoAeropuerto ", sqlConnection);
 
                     sqlCommand.Parameters.AddWithValue("@CodigoAeropuerto", aeropuerto.CodigoAeropuerto);

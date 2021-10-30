@@ -1,59 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="RESERVAS_ULACIT_3C2021Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="Aerolinea">
-    <Key>
-      <PropertyRef Name="CodigoAerolinea" />
-    </Key>
-    <Property Name="CodigoAerolinea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="CodigoAvion" Type="int" Nullable="false" />
-    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Telefono" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Aeropuerto">
-    <Key>
-      <PropertyRef Name="CodigoAeropuerto" />
-    </Key>
-    <Property Name="CodigoAeropuerto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CodigoAerolinea" Type="int" Nullable="false" />
-    <Property Name="Ubicacion" Type="varchar" MaxLength="200" Nullable="false" />
-    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Telefono" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Avion">
-    <Key>
-      <PropertyRef Name="CodigoAvion" />
-    </Key>
-    <Property Name="CodigoAvion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CodigoAerolinea" Type="int" Nullable="false" />
-    <Property Name="CodigoVuelo" Type="int" Nullable="false" />
-    <Property Name="CodigoAeropuerto" Type="int" Nullable="false" />
-    <Property Name="Capacidad" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Clientes">
-    <Key>
-      <PropertyRef Name="CodigoUsuario" />
-    </Key>
-    <Property Name="CodigoUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Identificacion" Type="int" Nullable="false" />
-    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="FechaNacimiento" Type="date" Nullable="false" />
-    <Property Name="Pasaporte" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="SeguroMedico" Type="varchar" MaxLength="1" Nullable="false" />
-    <Property Name="CodigoPago" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Equipaje">
-    <Key>
-      <PropertyRef Name="CodigoEquipaje" />
-    </Key>
-    <Property Name="CodigoEquipaje" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CodigoUsuario" Type="int" Nullable="false" />
-    <Property Name="Costo" Type="int" Nullable="false" />
-    <Property Name="Peso" Type="int" Nullable="false" />
-    <Property Name="CodigoAvion" Type="int" Nullable="false" />
-  </EntityType>
   <EntityType Name="Error">
     <Key>
       <PropertyRef Name="Codigo" />
@@ -103,16 +49,6 @@
     <Property Name="Telefono" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Categoria" Type="char" MaxLength="1" Nullable="false" />
   </EntityType>
-  <EntityType Name="Pago">
-    <Key>
-      <PropertyRef Name="CodigoPago" />
-    </Key>
-    <Property Name="CodigoPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CodigoUsuario" Type="int" Nullable="false" />
-    <Property Name="NumeroTarjeta" Type="int" Nullable="false" />
-    <Property Name="CodigoSeguridad" Type="int" Nullable="false" />
-    <Property Name="FechaVencimiento" Type="date" Nullable="false" />
-  </EntityType>
   <EntityType Name="Reserva">
     <Key>
       <PropertyRef Name="Codigo" />
@@ -122,16 +58,6 @@
     <Property Name="CodigoHabitacion" Type="int" Nullable="false" />
     <Property Name="FechaIngreso" Type="datetime" Nullable="false" />
     <Property Name="FechaSalida" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ReservasVuelo">
-    <Key>
-      <PropertyRef Name="CodigoReserva" />
-    </Key>
-    <Property Name="CodigoReserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CodigoUsuario" Type="int" Nullable="false" />
-    <Property Name="CodigoAvion" Type="int" Nullable="false" />
-    <Property Name="CodigoPago" Type="int" Nullable="false" />
-    <Property Name="Monto" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Sesion">
     <Key>
@@ -166,101 +92,6 @@
     <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
     <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
   </EntityType>
-  <EntityType Name="Vuelo">
-    <Key>
-      <PropertyRef Name="CodigoVuelo" />
-    </Key>
-    <Property Name="CodigoVuelo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CodigoAvion" Type="int" Nullable="false" />
-    <Property Name="Origen" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Destino" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="FechaSalida" Type="date" Nullable="false" />
-    <Property Name="FechaLlegada" Type="date" Nullable="false" />
-  </EntityType>
-  <Association Name="FK_Aeropuerto_Aerolinea">
-    <End Role="Aerolinea" Type="Self.Aerolinea" Multiplicity="1" />
-    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Aerolinea">
-        <PropertyRef Name="CodigoAerolinea" />
-      </Principal>
-      <Dependent Role="Aeropuerto">
-        <PropertyRef Name="CodigoAerolinea" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Avion_Aerolinea">
-    <End Role="Aerolinea" Type="Self.Aerolinea" Multiplicity="1" />
-    <End Role="Avion" Type="Self.Avion" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Aerolinea">
-        <PropertyRef Name="CodigoAerolinea" />
-      </Principal>
-      <Dependent Role="Avion">
-        <PropertyRef Name="CodigoAerolinea" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Avion_Aeropuerto">
-    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="1" />
-    <End Role="Avion" Type="Self.Avion" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Aeropuerto">
-        <PropertyRef Name="CodigoAeropuerto" />
-      </Principal>
-      <Dependent Role="Avion">
-        <PropertyRef Name="CodigoAeropuerto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Avion_Vuelo">
-    <End Role="Vuelo" Type="Self.Vuelo" Multiplicity="1" />
-    <End Role="Avion" Type="Self.Avion" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Vuelo">
-        <PropertyRef Name="CodigoVuelo" />
-      </Principal>
-      <Dependent Role="Avion">
-        <PropertyRef Name="CodigoVuelo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Clientes_Pago">
-    <End Role="Pago" Type="Self.Pago" Multiplicity="1" />
-    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Pago">
-        <PropertyRef Name="CodigoPago" />
-      </Principal>
-      <Dependent Role="Clientes">
-        <PropertyRef Name="CodigoPago" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Clientes_ReservasVuelo">
-    <End Role="ReservasVuelo" Type="Self.ReservasVuelo" Multiplicity="1" />
-    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ReservasVuelo">
-        <PropertyRef Name="CodigoReserva" />
-      </Principal>
-      <Dependent Role="Clientes">
-        <PropertyRef Name="CodigoPago" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Equipaje_Clientes">
-    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
-    <End Role="Equipaje" Type="Self.Equipaje" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Clientes">
-        <PropertyRef Name="CodigoUsuario" />
-      </Principal>
-      <Dependent Role="Equipaje">
-        <PropertyRef Name="CodigoUsuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Error_Usuario">
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
     <End Role="Error" Type="Self.Error" Multiplicity="*" />
@@ -321,30 +152,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ReservasVuelo_Avion">
-    <End Role="Avion" Type="Self.Avion" Multiplicity="1" />
-    <End Role="ReservasVuelo" Type="Self.ReservasVuelo" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Avion">
-        <PropertyRef Name="CodigoAvion" />
-      </Principal>
-      <Dependent Role="ReservasVuelo">
-        <PropertyRef Name="CodigoAvion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ReservasVuelo_Clientes">
-    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
-    <End Role="ReservasVuelo" Type="Self.ReservasVuelo" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Clientes">
-        <PropertyRef Name="CodigoUsuario" />
-      </Principal>
-      <Dependent Role="ReservasVuelo">
-        <PropertyRef Name="CodigoUsuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Sesion_Usuario">
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
     <End Role="Sesion" Type="Self.Sesion" Multiplicity="*" />
@@ -357,63 +164,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Vuelo_Avion">
-    <End Role="Avion" Type="Self.Avion" Multiplicity="1" />
-    <End Role="Vuelo" Type="Self.Vuelo" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Avion">
-        <PropertyRef Name="CodigoAvion" />
-      </Principal>
-      <Dependent Role="Vuelo">
-        <PropertyRef Name="CodigoAvion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="RESERVAS_ULACIT_3C2021ModelStoreContainer">
-    <EntitySet Name="Aerolinea" EntityType="Self.Aerolinea" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Aeropuerto" EntityType="Self.Aeropuerto" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Avion" EntityType="Self.Avion" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Equipaje" EntityType="Self.Equipaje" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Error" EntityType="Self.Error" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Estadistica" EntityType="Self.Estadistica" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Habitacion" EntityType="Self.Habitacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Hotel" EntityType="Self.Hotel" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Pago" EntityType="Self.Pago" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Reserva" EntityType="Self.Reserva" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ReservasVuelo" EntityType="Self.ReservasVuelo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sesion" EntityType="Self.Sesion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Vuelo" EntityType="Self.Vuelo" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_Aeropuerto_Aerolinea" Association="Self.FK_Aeropuerto_Aerolinea">
-      <End Role="Aerolinea" EntitySet="Aerolinea" />
-      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Avion_Aerolinea" Association="Self.FK_Avion_Aerolinea">
-      <End Role="Aerolinea" EntitySet="Aerolinea" />
-      <End Role="Avion" EntitySet="Avion" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Avion_Aeropuerto" Association="Self.FK_Avion_Aeropuerto">
-      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
-      <End Role="Avion" EntitySet="Avion" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Avion_Vuelo" Association="Self.FK_Avion_Vuelo">
-      <End Role="Vuelo" EntitySet="Vuelo" />
-      <End Role="Avion" EntitySet="Avion" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Clientes_Pago" Association="Self.FK_Clientes_Pago">
-      <End Role="Pago" EntitySet="Pago" />
-      <End Role="Clientes" EntitySet="Clientes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Clientes_ReservasVuelo" Association="Self.FK_Clientes_ReservasVuelo">
-      <End Role="ReservasVuelo" EntitySet="ReservasVuelo" />
-      <End Role="Clientes" EntitySet="Clientes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Equipaje_Clientes" Association="Self.FK_Equipaje_Clientes">
-      <End Role="Clientes" EntitySet="Clientes" />
-      <End Role="Equipaje" EntitySet="Equipaje" />
-    </AssociationSet>
     <AssociationSet Name="FK_Error_Usuario" Association="Self.FK_Error_Usuario">
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Error" EntitySet="Error" />
@@ -434,21 +193,9 @@
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Reserva" EntitySet="Reserva" />
     </AssociationSet>
-    <AssociationSet Name="FK_ReservasVuelo_Avion" Association="Self.FK_ReservasVuelo_Avion">
-      <End Role="Avion" EntitySet="Avion" />
-      <End Role="ReservasVuelo" EntitySet="ReservasVuelo" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ReservasVuelo_Clientes" Association="Self.FK_ReservasVuelo_Clientes">
-      <End Role="Clientes" EntitySet="Clientes" />
-      <End Role="ReservasVuelo" EntitySet="ReservasVuelo" />
-    </AssociationSet>
     <AssociationSet Name="FK_Sesion_Usuario" Association="Self.FK_Sesion_Usuario">
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Sesion" EntitySet="Sesion" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Vuelo_Avion" Association="Self.FK_Vuelo_Avion">
-      <End Role="Avion" EntitySet="Avion" />
-      <End Role="Vuelo" EntitySet="Vuelo" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

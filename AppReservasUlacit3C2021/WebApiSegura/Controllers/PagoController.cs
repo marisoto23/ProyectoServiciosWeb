@@ -115,9 +115,9 @@ namespace WebApiSegura.Controllers
                 using (SqlConnection sqlConnection =
                     new SqlConnection(ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
-                    SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO Pago(CodigoUsuario, NumeroTarjeta, CodigoSeguridad, FechaVencimiento)
+                    SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO Pago( CodigoUsuario, NumeroTarjeta, CodigoSeguridad, FechaVencimiento)
                                                             OUTPUT INSERTED.CodigoPago
-                                                            VALUES (@CodigoPago, @CodigoUsuario, @NumeroTarjeta, @CodigoSeguridad, @FechaVencimiento)"
+                                                            VALUES ( @CodigoUsuario, @NumeroTarjeta, @CodigoSeguridad, @FechaVencimiento)"
                                                               , sqlConnection);
 
                     sqlCommand.Parameters.AddWithValue("@CodigoUsuario", pago.CodigoUsuario);
@@ -156,11 +156,10 @@ namespace WebApiSegura.Controllers
                 ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"UPDATE Pago
-                                                            SET CodigoPago = @CodigoPago,
-                                                                CodigoUsuario = @CodigoUsuario,
+                                                            SET CodigoUsuario = @CodigoUsuario,
                                                                 NumeroTarjeta = @NumeroTarjeta,
                                                                 CodigoSeguridad = @CodigoSeguridad,
-                                                                FechaVencimiento = @FechaVencimiento,
+                                                                FechaVencimiento = @FechaVencimiento
                                                             WHERE CodigoPago = @CodigoPago ", sqlConnection);
 
                     sqlCommand.Parameters.AddWithValue("@CodigoPago", pago.CodigoPago);

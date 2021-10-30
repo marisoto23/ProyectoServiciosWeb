@@ -104,7 +104,7 @@ namespace WebApiSegura.Controllers
                     SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO EQUIPAJE(CodigoUsuario, Costo, Peso, CodigoAvion)
                                                             OUTPUT INSERTED.CodigoEquipaje
                                                             VALUES (@CodigoUsuario, @Costo, @Peso, @CodigoAvion)", sqlConnection);
-                    sqlCommand.Parameters.AddWithValue("@CodigoEquipaje", equipaje.CodigoEquipaje);
+
                     sqlCommand.Parameters.AddWithValue("@CodigoUsuario", equipaje.CodigoUsuario);
                     sqlCommand.Parameters.AddWithValue("@Costo", equipaje.Costo);
                     sqlCommand.Parameters.AddWithValue("@Peso", equipaje.Peso);
@@ -140,12 +140,12 @@ namespace WebApiSegura.Controllers
                 ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"UPDATE EQUIPAJE
-                                                            SET CodigoEquipaje = @CodigoEquipaje, 
-                                                            CodigoUsuario = @CodigoUsuario, 
+                                                            SET CodigoUsuario = @CodigoUsuario, 
                                                             Costo = @Costo, 
                                                             Peso = @Peso, 
                                                             CodigoAvion = @CodigoAvion
                                                             WHERE CodigoEquipaje = @CodigoEquipaje ", sqlConnection);
+
                     sqlCommand.Parameters.AddWithValue("@CodigoEquipaje", equipaje.CodigoEquipaje);
                     sqlCommand.Parameters.AddWithValue("@CodigoUsuario", equipaje.CodigoUsuario);
                     sqlCommand.Parameters.AddWithValue("@Costo", equipaje.Costo);
